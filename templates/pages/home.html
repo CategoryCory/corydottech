@@ -18,7 +18,7 @@
                         <p>{{ job.start_date|date:'F Y' }} &ndash; {% if job.end_date %}{{ job.end_date|date:'F Y' }}{% else %}Present{% endif %}</p>
                         {{ job.description|safe }}
                         {% if job.skills_used %}
-                            <div class="flex justify-start items-center gap-3">
+                            <div class="flex justify-start items-center flex-wrap gap-3">
                                 {% for job_skill in job.skills_used.all %}
                                     <p class="job-skill">
                                         {{ job_skill }}
@@ -32,7 +32,7 @@
         </div>
         <div class="mt-16">
             <h2 class="section-header section-header-line">About Me</h2>
-            <div class="prose max-w-none text-slate-400">
+            <div class="px-10 prose max-w-none text-slate-400">
                 <p>
                     I'm passionate about making a difference by building and fixing things. My specialty is
                     backend and embedded software engineering, but my experience also includes other engineering
