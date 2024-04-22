@@ -1,13 +1,52 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="grid grid-cols-1 lg:grid-cols-2">
-        <div>
-            <h2 class="inline-block banner py-8 text-6xl text-transparent font-black bg-clip-text bg-gradient-to-r
-                from-[#39BDC8] via-[#05FFCF] via-[#FAB67F] to-[#DF64B0] border-2 border-red-300"
-            >
-                Hi, I'm Cory
-            </h2>
+    <main class="relative max-w-2xl lg:max-w-3xl mx-auto px-4 lg:px-0">
+        <div class="mt-20 pt-8 px-5 bg-slate-900 double-border">
+            <p class="text-mono text-cyan-300">Welcome to my website! My name is</p>
+            <h2 class="inline-block banner pt-5 pb-3 tracking-tight">Cory Coward</h2>
+            <p class="section-header">Backend &amp; embedded software engineer</p>
         </div>
-    </div>
+        <div class="mt-16">
+            <h2 class="section-header section-header-line">Work Experience</h2>
+            <div>
+                {% for job in jobs %}
+                    <div class="job-card space-y-2">
+                        <h3 class="text-slate-200">
+                            <span class="text-lg text-cyan-300 font-extrabold">{{ job.title }}</span> @ {{ job.company }}
+                        </h3>
+                        <p>{{ job.start_date|date:'F Y' }} &ndash; {% if job.end_date %}{{ job.end_date|date:'F Y' }}{% else %}Present{% endif %}</p>
+                        {{ job.description|safe }}
+                        {% if job.skills_used %}
+                            <div class="flex justify-start items-center gap-3">
+                                {% for job_skill in job.skills_used.all %}
+                                    <p class="job-skill">
+                                        {{ job_skill }}
+                                    </p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="mt-16">
+            <h2 class="section-header section-header-line">About Me</h2>
+            <div class="prose max-w-none text-slate-400">
+                <p>
+                    I'm passionate about making a difference by building and fixing things. My specialty is
+                    backend and embedded software engineering, but my experience also includes other engineering
+                    disciplines like DSP and antenna design.
+                </p>
+                <p>
+                    My greatest enjoyment comes from working in that area where software meets hardware, writing optimized
+                    code that's blazingly fast and rock-solid.
+                </p>
+                <p>
+                    When I'm not at the computer or tinkering at the breadboard, you can often find me playing piano,
+                    reading, or watching Seinfeld for the 87th time.
+                </p>
+            </div>
+        </div>
+    </main>
 {% endblock content %}
