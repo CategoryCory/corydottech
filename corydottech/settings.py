@@ -134,6 +134,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Authentication and authorization
 AUTH_USER_MODEL = 'custom_user.CustomUser'
 
+# CSRF settings
+CSRF_TRUSTED_ORIGINS = env('CSRF_TRUSTED_ORIGINS').split(' ')
+
 # Tailwind
 TAILWIND_APP_NAME = 'theme'
 NPM_BIN_PATH = which('npm')
