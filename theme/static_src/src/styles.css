@@ -34,7 +34,8 @@
         color: #06B6D4;
     }
 
-    .job-card {
+    .job-card,
+    .project-card {
         @apply my-4 px-10 py-4 hover:bg-slate-800 hover:shadow-lg transition duration-100;
     }
 
@@ -42,7 +43,7 @@
         @apply list-disc list-inside marker:text-teal-400;
     }
 
-    .job-card .job-skill {
+    .skill-tag {
         @apply px-3 py-1 inline-block text-sm text-cyan-400 border border-cyan-400;
     }
 }
