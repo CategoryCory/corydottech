@@ -40,7 +40,7 @@
     }
 
     .job-card ul {
-        @apply list-disc list-inside marker:text-teal-400;
+        @apply ml-4 list-disc list-outside space-y-1.5 marker:text-teal-400;
     }
 
     .skill-tag {
