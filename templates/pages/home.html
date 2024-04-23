@@ -30,19 +30,21 @@
         </div>
         <div class="mt-16">
             <h2 class="section-header section-header-line">My Projects</h2>
-            <div class="project-card grid grid-cols-1 md:grid-cols-4 gap-3">
-                <div class="col-span-1 text-slate-200 hidden md:block">In Progress</div>
-                <div class="col-span-3 space-y-2">
-                    <h4 class="text-lg text-cyan-300 font-extrabold">A cool project</h4>
-                    <p class="md:hidden">In Progress</p>
-                    <p>This is a description of my really cool project. It was really fun to work on.</p>
-                    <div class="flex justify-start items-center flex-wrap gap-3">
-                        <p class="skill-tag">C++</p>
-                        <p class="skill-tag">FreeRTOS</p>
-                        <p class="skill-tag">Sockets</p>
+            {% for project in projects %}
+                <div class="project-card grid grid-cols-1 md:grid-cols-4 gap-3">
+                    <div class="col-span-1 text-slate-200 hidden md:block">{{ project.get_status_display }}</div>
+                    <div class="col-span-3 space-y-2">
+                        <h4 class="text-lg text-cyan-300 font-extrabold">{{ project.name }}</h4>
+                        <p class="md:hidden">{{ project.get_status_display }}</p>
+                        <p>{{ project.summary }}</p>
+                        <div class="flex justify-start items-center flex-wrap gap-3">
+                            {% for project_skill in project.skills_used.all %}
+                                <p class="skill-tag">{{ project_skill }}</p>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
-            </div>
+            {% endfor %}
         </div>
         <div class="mt-16">
             <h2 class="section-header section-header-line">About Me</h2>

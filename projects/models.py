@@ -19,6 +19,7 @@ class Project(models.Model):
     summary = models.CharField(max_length=255)
     description = models.TextField()
     status = models.CharField(max_length=25, choices=STATUS_CHOICES, default=IN_PROGRESS)
+    github_url = models.URLField(blank=True, null=True)
     skills_used = TaggableManager()
 
     def __str__(self) -> str:
