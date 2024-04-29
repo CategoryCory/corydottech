@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     'custom_user.apps.CustomUserConfig',
     'jobs.apps.JobsConfig',
     'projects.apps.ProjectsConfig',
-    'home_sensors.apps.HomeSensorsConfig',
 ]
 
 MIDDLEWARE = [
@@ -82,17 +81,7 @@ DATABASES = {
         'HOST': env('DB_HOST'),
         'PORT': env('DB_PORT'),
     },
-    'home_sensors': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('HS_DB_NAME'),
-        'USER': env('HS_DB_USER'),
-        'PASSWORD': env('HS_DB_PASSWORD'),
-        'HOST': env('DB_HOST'),
-        'PORT': env('DB_PORT'),
-    }
 }
-
-DATABASE_ROUTERS = ('home_sensors.router.HomeSensorsRouter', )
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
