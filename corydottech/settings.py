@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # 3rd party
+    'ninja',
     'tailwind',
     'taggit',
     'tinymce',
@@ -32,6 +33,7 @@ INSTALLED_APPS = [
     # Local
     'theme.apps.ThemeConfig',
     'custom_user.apps.CustomUserConfig',
+    'auth_keys.apps.AuthKeysConfig',
     'jobs.apps.JobsConfig',
     'projects.apps.ProjectsConfig',
     'sensors.apps.SensorsConfig',
@@ -147,3 +149,6 @@ TINYMCE_DEFAULT_CONFIG = {
     "backcolor | link anchor codesample | "
     "a11ycheck ltr rtl | showcomments addcomment code",
 }
+
+# Encryption key
+ENCRYPTION_KEY = env('ENCRYPTION_KEY')
