@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'custom_user.apps.CustomUserConfig',
     'jobs.apps.JobsConfig',
     'projects.apps.ProjectsConfig',
+    'sensors.apps.SensorsConfig',
 ]
 
 MIDDLEWARE = [
