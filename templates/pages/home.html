@@ -19,7 +19,7 @@
                     {% if job.skills_used %}
                         <div class="flex justify-start items-center flex-wrap gap-3">
                             {% for job_skill in job.skills_used.all %}
-                                <p class="skill-tag">
+                                <p class="font-mono skill-tag">
                                     {{ job_skill }}
                                 </p>
                             {% endfor %}
@@ -41,7 +41,7 @@
                         <p>{{ project.summary }}</p>
                         <div class="flex justify-start items-center flex-wrap gap-3">
                             {% for project_skill in project.skills_used.all %}
-                                <p class="skill-tag">{{ project_skill }}</p>
+                                <p class="font-mono skill-tag">{{ project_skill }}</p>
                             {% endfor %}
                         </div>
                     </div>
