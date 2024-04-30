@@ -6,6 +6,7 @@ class CustomUser(AbstractUser):
     first_name = models.CharField(max_length=50, blank=True, null=True)
     last_name = models.CharField(max_length=50, blank=True, null=True)
 
+    @property
     def full_name(self) -> str:
         return f'{self.first_name} {self.last_name}'
 
