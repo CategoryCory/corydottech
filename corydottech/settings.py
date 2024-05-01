@@ -17,6 +17,9 @@ ALLOWED_HOSTS = env('ALLOWED_HOSTS').split(' ')
 
 INSTALLED_APPS = [
     # Core
+    'unfold',
+    'unfold.contrib.filters',
+    'unfold.contrib.forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -152,3 +155,9 @@ TINYMCE_DEFAULT_CONFIG = {
 
 # Encryption key
 ENCRYPTION_KEY = env('ENCRYPTION_KEY')
+
+# Unfold options
+UNFOLD = {
+    'SITE_TITLE': 'cory{dot}tech',
+    'SITE_HEADER': 'cory{dot}tech',
+}

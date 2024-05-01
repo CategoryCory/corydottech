@@ -1,11 +1,12 @@
 from django.db import models
 from django.contrib import admin
+from unfold.admin import ModelAdmin
 
 from projects.models import Project
 from tinymce.widgets import TinyMCE
 
 
-class ProjectAdmin(admin.ModelAdmin):
+class ProjectAdmin(ModelAdmin):
     list_display = ('name', 'status', )
     list_filter = ('name', )
     search_fields = ('name', )
