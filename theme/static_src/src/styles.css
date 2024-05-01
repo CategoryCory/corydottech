@@ -3,9 +3,14 @@
 @tailwind utilities;
 
 @layer base {
+    html {
+        scroll-behavior: smooth !important;
+        --scroll-behavior: smooth !important;
+    }
+
     body {
         font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        @apply text-slate-400 selection:bg-cyan-300 selection:text-cyan-950;
+        @apply text-slate-400 selection:bg-sky-300 selection:text-sky-950;
     }
 
     .text-mono {
@@ -14,12 +19,12 @@
 
     .banner {
         font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-        @apply text-5xl md:text-7xl text-center text-transparent tracking-wide font-black bg-clip-text bg-gradient-to-r from-[#B74FFB] via-[#FA43F9] to-[#FF911A];
+        @apply text-5xl md:text-7xl text-center text-transparent tracking-wide font-black bg-clip-text bg-gradient-to-r from-[#6366F1] via-[#B74FFB] via-[#FA43F9] to-[#FF911A];
     }
 
     .double-border {
-        @apply relative border-4 border-cyan-500 after:absolute after:top-0 after:left-0 after:-ml-3.5 after:mt-3.5 after:w-full
-            after:h-full after:border-4 after:border-cyan-500 after:-z-10;
+        @apply relative border-4 border-sky-500 after:absolute after:top-0 after:left-0 after:-ml-3.5 after:mt-3.5 after:w-full
+            after:h-full after:border-2 after:border-sky-700 after:-z-10;
     }
 
     .section-header {
@@ -31,7 +36,7 @@
         border-top: 2px solid;
         margin: 0 0 0 20px;
         flex: 1 0 20px;
-        color: #06B6D4;
+        color: #0EA5E9;
     }
 
     .job-card,
@@ -40,10 +45,10 @@
     }
 
     .job-card ul {
-        @apply ml-4 list-disc list-outside space-y-1.5 marker:text-teal-400;
+        @apply ml-4 list-disc list-outside space-y-1.5 marker:text-sky-500;
     }
 
     .skill-tag {
-        @apply px-3 py-1 inline-block text-sm text-cyan-400 border border-cyan-400;
+        @apply px-3 py-1 inline-block text-sm text-sky-400 border border-sky-400;
     }
 }
