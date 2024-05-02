@@ -10,20 +10,20 @@
 
     body {
         font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        @apply text-slate-400 selection:bg-sky-300 selection:text-sky-950;
+        @apply text-slate-300 selection:bg-sky-300 selection:text-sky-950;
     }
 
     .text-mono {
-        font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     }
 
     .banner {
-        font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
         @apply text-5xl md:text-7xl text-center text-transparent tracking-wide font-black bg-clip-text bg-gradient-to-r from-[#6366F1] via-[#B74FFB] via-[#FA43F9] to-[#FF911A];
     }
 
     .double-border {
-        @apply relative border-4 border-sky-500 after:absolute after:top-0 after:left-0 after:-ml-3.5 after:mt-3.5 after:w-full
+        @apply relative border-4 border-sky-400 after:absolute after:top-0 after:left-0 after:-ml-3.5 after:mt-3.5 after:w-full
             after:h-full after:border-2 after:border-sky-700 after:-z-10;
     }
 
@@ -33,10 +33,11 @@
 
     .section-header-line::after {
         content: "";
-        border-top: 2px solid;
+        height: 2px;
         margin: 0 0 0 20px;
         flex: 1 0 20px;
-        color: #0EA5E9;
+        background: rgb(99,102,241);
+        background: linear-gradient(90deg, rgba(99,102,241,1) 0%, rgba(183,79,251,1) 33%, rgba(250,67,249,1) 66%, rgba(255,145,26,1) 100%);
     }
 
     .job-card,
@@ -45,10 +46,10 @@
     }
 
     .job-card ul {
-        @apply ml-4 list-disc list-outside space-y-1.5 marker:text-sky-500;
+        @apply ml-4 list-disc list-outside space-y-1.5 marker:text-sky-400;
     }
 
     .skill-tag {
-        @apply px-3 py-1 inline-block text-sm text-sky-400 border border-sky-400;
+        @apply px-3 py-1 inline-block text-sm text-sky-300 border border-sky-300;
     }
 }

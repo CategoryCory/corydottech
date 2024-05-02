@@ -4,7 +4,7 @@
 
 {% block content %}
     <header class="w-full mt-10 px-6 md:px-12">
-        <nav class="max-w-7xl mx-auto flex justify-end items-center gap-6 md:gap-8 font-mono text-sky-400">
+        <nav class="max-w-7xl mx-auto flex justify-end items-center gap-6 md:gap-8 font-mono text-sky-300">
             <a href="#work-experience">Work</a>
             <a href="#projects">Projects</a>
             <a href="#about-me">About Me</a>
@@ -18,7 +18,7 @@
     </header>
     <main class="relative max-w-2xl lg:max-w-3xl mx-auto px-4 lg:px-0">
         <div class="mt-10 pt-8 px-5 bg-slate-900 double-border">
-            <p class="text-mono text-sky-400">Welcome to my website! My name is</p>
+            <p class="text-mono text-sky-300">Welcome to my website! My name is</p>
             <h2 class="inline-block banner pt-5 pb-3 tracking-tight">Cory Coward</h2>
             <p class="section-header">Backend &amp; embedded software engineer</p>
         </div>
@@ -27,7 +27,7 @@
             {% for job in jobs %}
                 <div class="job-card space-y-2">
                     <h3 class="text-slate-200">
-                        <span class="text-lg text-sky-400 font-extrabold">{{ job.title }}</span> @ {{ job.company }}
+                        <span class="text-lg text-sky-300 font-extrabold">{{ job.title }}</span> @ {{ job.company }}
                     </h3>
                     <p>{{ job.start_date|date:'F Y' }} &ndash; {% if job.end_date %}{{ job.end_date|date:'F Y' }}{% else %}Present{% endif %}</p>
                     {{ job.description|safe }}
@@ -49,7 +49,7 @@
                 <div class="project-card grid grid-cols-1 md:grid-cols-4 gap-3">
                     <div class="col-span-1 text-slate-200 hidden md:block">{{ project.get_status_display }}</div>
                     <div class="col-span-3 space-y-2">
-                        <h4 class="text-lg text-sky-400 font-extrabold">
+                        <h4 class="text-lg text-sky-300 font-extrabold">
                             <a href="{{ project.github_url }}" class="hover:underline transition duration-100" target="_blank">{{ project.name }}</a>
                         </h4>
                         <p class="md:hidden">{{ project.get_status_display }}</p>
@@ -65,7 +65,7 @@
         </div>
         <div class="mt-16">
             <h2 id="about-me" class="section-header section-header-line">About Me</h2>
-            <div class="px-10 prose max-w-none text-slate-400">
+            <div class="px-10 prose max-w-none text-slate-300">
                 <p>
                     I'm passionate about making a difference by building and fixing things. My specialty is
                     backend and embedded software engineering, but my experience also includes other engineering
