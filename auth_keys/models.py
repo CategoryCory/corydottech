@@ -3,7 +3,7 @@ from typing import Any
 from cryptography.fernet import Fernet
 from django.conf import settings
 from django.db import models
-from django.utils.safestring import mark_safe, SafeString
+from django.utils.safestring import SafeString
 
 
 class AuthKey(models.Model):

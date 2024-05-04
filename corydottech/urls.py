@@ -6,6 +6,7 @@ from .api import api
 
 urlpatterns = [
     path('', include('pages.urls')),
+    path('projects/', include('projects.urls')),
     path('cdt-admin/', admin.site.urls),
     path('api/', api.urls),
     path('tinymce/', include('tinymce.urls')),

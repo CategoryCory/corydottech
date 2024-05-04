@@ -4,19 +4,24 @@
 
 {% block content %}
     <header class="w-full mt-10 px-6 md:px-12">
-        <nav class="max-w-7xl mx-auto flex justify-end items-center gap-6 md:gap-8 font-mono text-sky-300">
-            <a href="#work-experience">Work</a>
-            <a href="#projects">Projects</a>
-            <a href="#about-me">About Me</a>
-            <a href="https://www.linkedin.com/in/cory-coward/" target="_blank"><span class="sr-only">LinkedIn Link</span>
-                <img src="{% static 'images/linkedin_icon.svg' %}" alt="LinkedIn Icon" class="h-5 w-5">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="{% url 'pages:home' %}"><span class="sr-only">Home</span>
+                <img src="{% static 'images/cdt-logo-512x512.png' %}" class="h-10 w-10 md:h-14 md:w-14" alt="Cory{dot}tech Logo" >
             </a>
-            <a href="https://github.com/CategoryCory" target="_blank"><span class="sr-only">GitHub Link</span>
-                <img src="{% static 'images/github_icon.svg' %}" alt="GitHub Icon" class="h-6 w-6">
-            </a>
-        </nav>
+            <nav class="flex justify-end items-center gap-6 md:gap-8 font-mono text-sky-300">
+                <a href="#work-experience">Work</a>
+                <a href="#projects">Projects</a>
+                <a href="#about-me">About Me</a>
+                <a href="https://www.linkedin.com/in/cory-coward/" target="_blank"><span class="sr-only">LinkedIn Link</span>
+                    <img src="{% static 'images/linkedin_icon.svg' %}" alt="LinkedIn Icon" class="h-5 w-5">
+                </a>
+                <a href="https://github.com/CategoryCory" target="_blank"><span class="sr-only">GitHub Link</span>
+                    <img src="{% static 'images/github_icon.svg' %}" alt="GitHub Icon" class="h-6 w-6">
+                </a>
+            </nav>
+        </div>
     </header>
-    <main class="relative max-w-2xl lg:max-w-3xl mx-auto px-4 lg:px-0">
+    <main class="relative max-w-2xl lg:max-w-3xl mx-auto px-4 lg:px-0 flex-grow">
         <div class="mt-10 pt-8 px-5 bg-slate-900 double-border">
             <p class="text-mono text-sky-300">Welcome to my website! My name is</p>
             <h2 class="inline-block banner pt-5 pb-3 tracking-tight">Cory Coward</h2>
@@ -50,7 +55,9 @@
                     <div class="col-span-1 text-slate-200 hidden md:block">{{ project.get_status_display }}</div>
                     <div class="col-span-3 space-y-2">
                         <h4 class="text-lg text-sky-300 font-extrabold">
-                            <a href="{{ project.github_url }}" class="hover:underline transition duration-100" target="_blank">{{ project.name }}</a>
+                            <a href="{% url 'projects:project-detail' slug=project.slug %}" class="hover:underline transition duration-100">
+                                {{ project.name }}
+                            </a>
                         </h4>
                         <p class="md:hidden">{{ project.get_status_display }}</p>
                         <p>{{ project.summary }}</p>
@@ -61,11 +68,13 @@
                         </div>
                     </div>
                 </div>
+            {% empty %}
+                <p class="px-10 text-slate-200">No projects listed yet...check back soon!</p>
             {% endfor %}
         </div>
         <div class="mt-16">
             <h2 id="about-me" class="section-header section-header-line">About Me</h2>
-            <div class="px-10 prose max-w-none text-slate-300">
+            <div class="px-10 prose max-w-none">
                 <p>
                     I'm passionate about making a difference by building and fixing things. My specialty is
                     backend and embedded software engineering, but my experience also includes other engineering

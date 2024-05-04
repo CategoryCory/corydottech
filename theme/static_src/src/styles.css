@@ -10,7 +10,7 @@
 
     body {
         font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        @apply text-slate-300 selection:bg-sky-300 selection:text-sky-950;
+        @apply flex flex-col min-h-screen text-slate-300 selection:bg-sky-300 selection:text-sky-950;
     }
 
     .text-mono {
@@ -50,6 +50,14 @@
     }
 
     .skill-tag {
-        @apply px-3 py-1 inline-block text-sm text-sky-300 border border-sky-300;
+        @apply px-3 py-1 inline-block text-sm text-sky-200 bg-sky-950 border border-sky-300;
+    }
+
+    .prose h1,
+    .prose h2,
+    .prose h3,
+    .prose h4,
+    .prose p {
+        @apply text-slate-300;
     }
 }

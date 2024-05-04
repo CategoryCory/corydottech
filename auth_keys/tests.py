@@ -1,3 +1,19 @@
+from cryptography.fernet import Fernet
 from django.test import TestCase
 
-# Create your tests here.
+from .models import AuthKey
+
+
+class AuthKeysTest(TestCase):
+    test_encryption_key: str = "Ow7fQSLXRttmIzbVpVBIN-C0pigjtTvbpBBw7EiHLWk="
+    test_api_key: str = "test-api-key"
+
+    @classmethod
+    def setUpTestData(cls):
+        cipher = Fernet(cls.test_encryption_key)
+        encrypted_key = cipher.encrypt(cls.test_api_key.encode())
+        AuthKey.objects.create(encrypted_api_key=encrypted_key)
+
+    # def test_decode_api_key(self):
+    #     key = AuthKey.objects.get(pk=1)
+    #     self.assertEqual(key.api_key, self.test_api_key)

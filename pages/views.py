@@ -7,7 +7,7 @@ from projects.models import Project
 
 
 def home(request) -> HttpResponse:
-    projects: QuerySet[Project] = Project.objects.all()
+    projects: QuerySet[Project] = Project.objects.filter(is_published=True).order_by('-begin_date')
     jobs: QuerySet[Job] = Job.objects.order_by('-start_date')
     context: dict[str, QuerySet] = {
         'projects': projects,
