@@ -25,7 +25,7 @@
             <h2 class="inline-block banner pt-5 pb-3 text-3xl md:text-5xl text-left tracking-tight">{{ project.name }}</h2>
             <p class="text-mono text-lg md:text-2xl text-sky-400">
                 {{ project.get_status_display }} &bull;
-                {{ project.begin_date|date:"M Y" }} &ndash; {% if project.end_date %}{{ project.end_date }}{% else %}Present{% endif %}
+                {{ project.begin_date|date:"M Y" }} &ndash; {% if project.end_date %}{{ project.end_date|date:"M Y" }}{% else %}Present{% endif %}
             </p>
         </div>
         <div class="flex justify-start items-center flex-wrap gap-3">
