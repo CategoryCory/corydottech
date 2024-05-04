@@ -33,6 +33,13 @@
                 <p class="font-mono skill-tag">{{ skill }}</p>
             {% endfor %}
         </div>
+        {% if project.github_url %}
+            <div class="mt-6">
+                <a href="{{ project.github_url }}" class="font-mono text-sky-300 hover:underline">
+                    {{ project.name }} on GitHub &rarr;
+                </a>
+            </div>
+        {% endif %}
         <div class="mt-10 prose prose-sky max-w-none">
             {{ project.description|safe }}
         </div>
