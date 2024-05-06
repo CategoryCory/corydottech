@@ -1,4 +1,5 @@
 import logging
+from datetime import datetime
 from django.conf import settings
 from django.core import mail
 from django.db import transaction
@@ -35,14 +36,17 @@ class ContactForm(ModelForm):
                 f'You have a new message from {instance.name} ({instance.email}) on cory.tech.\n\n'
                 f'{instance.message}'
             )
-            contact_email = mail.EmailMessage(
-                'New message from cory.tech',
-                message,
-                settings.DEFAULT_FROM_EMAIL,
-                [settings.ADMIN_EMAIL, ],
-            )
             try:
-                contact_email.send(fail_silently=False)
+                mails_sent: int = mail.send_mail(
+                    subject='New message from cory.tech',
+                    message=message,
+                    from_email=settings.DEFAULT_FROM_EMAIL,
+                    recipient_list=[settings.ADMIN_EMAIL],
+                    fail_silently=False,
+                )
+
+                if mails_sent < 1:
+                    logger.warning(f'Attempt to send mail failed at {datetime.now()}')
             except Exception as e:
                 logger.error(
                     f'{type(e).__name__} at line {e.__traceback__.tb_lineno} of {__file__}: {e}'
