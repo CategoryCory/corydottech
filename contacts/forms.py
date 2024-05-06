@@ -37,7 +37,7 @@ class ContactForm(ModelForm):
                 message,
                 settings.DEFAULT_FROM_EMAIL,
                 [settings.ADMIN_EMAIL, ],
-                fail_silently=True,
+                fail_silently=False,
             )
 
         transaction.on_commit(send_admin_email)
