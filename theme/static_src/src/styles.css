@@ -19,7 +19,7 @@
 
     .banner {
         font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-        @apply text-5xl md:text-7xl text-center text-transparent tracking-wide font-black bg-clip-text bg-gradient-to-r from-[#6366F1] via-[#B74FFB] via-[#FA43F9] to-[#FF911A];
+        @apply text-4xl sm:text-5xl md:text-7xl text-transparent tracking-wide font-black bg-clip-text bg-gradient-to-r from-[#6366F1] via-[#B74FFB] via-[#FA43F9] to-[#FF911A];
     }
 
     .double-border {
@@ -59,5 +59,38 @@
     .prose h4,
     .prose p {
         @apply text-slate-300;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="date"],
+    textarea {
+        @apply w-full px-4 py-2 font-mono bg-slate-800 border-2 border-slate-800 focus:ring-0 focus:border-sky-600 transition duration-150;
+    }
+
+    input[type="checkbox"] {
+        @apply w-5 h-5 rounded text-indigo-600 border-slate-400 border-2 focus:ring-indigo-600;
+    }
+
+    input[type="submit"] {
+        @apply py-2 cursor-pointer border-2 border-sky-800 font-mono font-bold text-lg uppercase tracking-wider
+        focus:ring-0 focus:outline-0 focus:bg-sky-800 hover:bg-sky-800 transition duration-150;
+    }
+
+     .alert-message {
+        @apply w-full my-4 px-5 py-3 flex gap-2;
+    }
+
+    .alert-success {
+        @apply bg-sky-300 text-sky-950;
+    }
+
+    .alert-info {
+        @apply bg-sky-300 text-sky-950;
+    }
+
+    .alert-error {
+        @apply bg-red-300 text-red-950;
     }
 }

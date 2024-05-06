@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'tailwind',
     'taggit',
     'tinymce',
+    'django_recaptcha',
 
     # Local
     'theme.apps.ThemeConfig',
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'auth_keys.apps.AuthKeysConfig',
     'jobs.apps.JobsConfig',
     'projects.apps.ProjectsConfig',
+    'contacts.apps.ContactsConfig',
     'sensors.apps.SensorsConfig',
 ]
 
@@ -161,3 +163,21 @@ UNFOLD = {
     'SITE_TITLE': 'cory{dot}tech',
     'SITE_HEADER': 'cory{dot}tech',
 }
+
+# ReCAPTCHA settings
+RECAPTCHA_PUBLIC_KEY = env('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = env('RECAPTCHA_PRIVATE_KEY')
+RECAPTCHA_REQUIRED_SCORE = 0.5
+
+# Email settings
+if DEBUG is True:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_PORT = env('EMAIL_PORT')
+EMAIL_USE_TLS = env('EMAIL_USE_TLS')
+EMAIL_USER = env('EMAIL_USER')
+EMAIL_PASSWORD = env('EMAIL_PASSWORD')
+DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
+ADMIN_EMAIL = env('ADMIN_EMAIL')
