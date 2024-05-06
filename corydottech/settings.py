@@ -181,3 +181,23 @@ EMAIL_USER = env('EMAIL_USER')
 EMAIL_PASSWORD = env('EMAIL_PASSWORD')
 DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
 ADMIN_EMAIL = env('ADMIN_EMAIL')
+
+# Logging settings
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR / 'corydottech.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'WARNING',
+            'propagate': True,
+        }
+    }
+}
