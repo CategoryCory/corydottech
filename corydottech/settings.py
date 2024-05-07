@@ -174,11 +174,6 @@ if DEBUG is True:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = env('EMAIL_HOST')
-EMAIL_PORT = env('EMAIL_PORT')
-EMAIL_USE_TLS = env('EMAIL_USE_TLS')
-EMAIL_USER = env('EMAIL_USER')
-EMAIL_PASSWORD = env('EMAIL_PASSWORD')
 DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
 ADMIN_EMAIL = env('ADMIN_EMAIL')
 SENDGRID_API_KEY = env('SENDGRID_API_KEY')
