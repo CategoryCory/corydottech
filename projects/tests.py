@@ -1,3 +1,4 @@
+from datetime import date
 from django.test import TestCase
 
 from projects.models import Project
@@ -12,6 +13,7 @@ class ProjectModelTest(TestCase):
             summary='Test Summary',
             description='Test Description',
             github_url='https://github.com/TestProject',
+            begin_date=date.today(),
         )
 
     def test_name_max_length(self):
