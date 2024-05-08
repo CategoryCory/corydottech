@@ -54,7 +54,27 @@
                 {% endif %}
             {% endfor %}
             {{ form.recaptcha }}
-            <input type="submit" value="Submit">
+            <button
+                id="contact-form-submit-button"
+                class="button button-primary flex justify-center items-center gap-4"
+                type="submit"
+            >
+                <span class="inline-block">Submit</span>
+            </button>
         </form>
     </div>
 {% endblock content %}
+
+{% block extra_scripts %}
+    <script>
+        const contactForm = document.getElementById("contact-form");
+        const submitButton = document.getElementById("contact-form-submit-button");
+        
+        contactForm.addEventListener("submit", () => {
+            submitButton.innerHTML = "<span class='loading loading-bars loading-md'></span><span class='inline-block'>Please wait...</span>";
+            submitButton.classList.remove("button-primary");
+            submitButton.classList.add("button-disabled");
+            submitButton.disabled = true;
+        });
+    </script>
+{% endblock extra_scripts %}
