@@ -1,5 +1,6 @@
 import environ
 import os
+from django.templatetags.static import static
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from pathlib import Path
@@ -164,6 +165,7 @@ ENCRYPTION_KEY = env('ENCRYPTION_KEY')
 UNFOLD = {
     'SITE_TITLE': 'cory{dot}tech',
     'SITE_HEADER': 'cory{dot}tech',
+    'SITE_ICON': lambda request: static('icons/favicon-32x32.png'),
     'SIDEBAR': {
         'show_search': True,
         'show_all_applications': False,
