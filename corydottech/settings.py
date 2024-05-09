@@ -1,5 +1,7 @@
 import environ
 import os
+from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
 from pathlib import Path
 from shutil import which
 
@@ -162,6 +164,59 @@ ENCRYPTION_KEY = env('ENCRYPTION_KEY')
 UNFOLD = {
     'SITE_TITLE': 'cory{dot}tech',
     'SITE_HEADER': 'cory{dot}tech',
+    'SIDEBAR': {
+        'show_search': True,
+        'show_all_applications': False,
+        'navigation': [
+            {
+
+                'title': _('Navigation'),
+                'separator': True,
+                'items': [
+                    {
+                        'title': _('Users'),
+                        'icon': 'person',
+                        'link': reverse_lazy('admin:custom_user_customuser_changelist'),
+                    },
+                    {
+                        'title': _('Groups'),
+                        'icon': 'groups',
+                        'link': reverse_lazy('admin:auth_group_changelist'),
+                    },
+                    {
+                        'title': _('API Auth Keys'),
+                        'icon': 'key',
+                        'link': reverse_lazy('admin:auth_keys_authkey_changelist'),
+                    },
+                    {
+                        'title': _('Contacts'),
+                        'icon': 'feed',
+                        'link': reverse_lazy('admin:contacts_contact_changelist'),
+                    },
+                    {
+                        'title': _('Jobs'),
+                        'icon': 'work',
+                        'link': reverse_lazy('admin:jobs_job_changelist'),
+                    },
+                    {
+                        'title': _('Projects'),
+                        'icon': 'cognition',
+                        'link': reverse_lazy('admin:projects_project_changelist'),
+                    },
+                    {
+                        'title': _('Temp/Humidity Readings'),
+                        'icon': 'sensors',
+                        'link': reverse_lazy('admin:sensors_temphumiditysensor_changelist'),
+                    },
+                    {
+                        'title': _('Tags'),
+                        'icon': 'style',
+                        'link': reverse_lazy('admin:taggit_tag_changelist'),
+                    },
+                ],
+            },
+        ],
+    },
 }
 
 # ReCAPTCHA settings
