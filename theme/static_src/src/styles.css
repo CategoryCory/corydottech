@@ -23,8 +23,20 @@
     }
 
     .double-border {
-        @apply relative border-4 border-sky-400 after:absolute after:top-0 after:left-0 after:-ml-3.5 after:mt-3.5 after:w-full
-            after:h-full after:border-2 after:border-sky-700 after:-z-10;
+        position: relative;
+        z-index: 0;
+        @apply box-border border-4 border-sky-400 after:box-border after:border-2 after:border-fuchsia-500;
+    }
+
+    .double-border::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100.75%;
+        height: 104%;
+        margin-left: -0.875rem;
+        margin-top: 0.5rem;
+        z-index: -1;
     }
 
     .section-header {
@@ -61,6 +73,10 @@
         @apply text-slate-300;
     }
 
+    .prose a {
+        @apply text-sky-400;
+    }
+
     input[type="text"],
     input[type="email"],
     input[type="password"],
@@ -72,11 +88,6 @@
     input[type="checkbox"] {
         @apply w-5 h-5 rounded text-indigo-600 border-slate-400 border-2 focus:ring-indigo-600;
     }
-
-    /*input[type="submit"] {*/
-    /*    @apply py-2 cursor-pointer border-2 border-sky-800 font-mono font-bold text-lg uppercase tracking-wider*/
-    /*    focus:ring-0 focus:outline-0 focus:bg-sky-800 hover:bg-sky-800 transition duration-150;*/
-    /*}*/
 
     .button {
         @apply py-2 cursor-pointer border-2 font-mono font-bold text-lg uppercase tracking-wider focus:ring-0

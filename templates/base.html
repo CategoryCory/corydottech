@@ -27,7 +27,7 @@
                 <img src="{% static 'images/cdt-logo-512x512.webp' %}" class="h-10 w-10 md:h-14 md:w-14" alt="Cory{dot}tech Logo" >
             </a>
             <nav class="flex justify-end items-center gap-6 md:gap-8 font-mono text-sky-300">
-                <a href="{% url 'contacts:contact' %}">Contact Me</a>
+                <a href="{% url 'contacts:contact' %}" class="text-sky-400">Contact Me</a>
                 <a href="https://www.linkedin.com/in/cory-coward/" target="_blank"><span class="sr-only">LinkedIn Link</span>
                     <img src="{% static 'images/linkedin_icon.svg' %}" alt="LinkedIn Icon" class="h-5 w-5">
                 </a>
@@ -44,8 +44,8 @@
         <p>&copy; {% now "Y" %} by Cory Coward</p>
         <p class="text-center leading-loose">
             Designed and built by yours truly using
-            <a href="https://www.djangoproject.com/" class="font-bold underline" target="_blank">Django</a> and
-            <a href="https://tailwindcss.com/" class="font-bold underline" target="_blank">Tailwind CSS</a>.
+            <a href="https://www.djangoproject.com/" class="font-bold hover:underline" target="_blank">Django</a> and
+            <a href="https://tailwindcss.com/" class="font-bold hover:underline" target="_blank">Tailwind CSS</a>.
         </p>
         <div class="pt-4 flex items-center gap-5">
             <a href="https://www.linkedin.com/in/cory-coward/" target="_blank" class="h-7 w-7">
