@@ -25,6 +25,17 @@ class Project(models.Model):
     is_published = models.BooleanField(default=False)
     skills_used = TaggableManager()
 
+    @property
+    def date_str(self) -> str:
+        dt = self.begin_date.strftime('%b %Y')
+        if self.status == self.IN_PROGRESS:
+            dt += ' \u2013 PRESENT'
+        else:
+            if self.end_date is not None:
+                dt += f' \u2013 {self.end_date.strftime("%b %Y")}'
+
+        return dt
+
     def __str__(self) -> str:
         return self.name
 
