@@ -91,7 +91,7 @@
 
     .button {
         @apply py-2 cursor-pointer border-2 font-mono font-bold text-lg uppercase tracking-wider focus:ring-0
-            focus:outline-0 transition duration-150;
+            focus:outline-none transition duration-150;
     }
 
     .button-primary {

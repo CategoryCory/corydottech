@@ -12,6 +12,7 @@ class ProjectAdmin(ModelAdmin):
     search_fields = ('name', )
     list_display_links = ('name', )
     list_per_page = 20
+    readonly_fields = ('slug', )
     formfield_overrides = {
         models.TextField: {'widget': TinyMCE},
     }
