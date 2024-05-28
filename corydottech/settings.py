@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'projects.apps.ProjectsConfig',
     'contacts.apps.ContactsConfig',
     'sensors.apps.SensorsConfig',
+    'certifications.apps.CertificationsConfig',
 ]
 
 MIDDLEWARE = [
@@ -204,6 +205,11 @@ UNFOLD = {
                         'title': _('Projects'),
                         'icon': 'cognition',
                         'link': reverse_lazy('admin:projects_project_changelist'),
+                    },
+                    {
+                        'title': _('Certifications'),
+                        'icon': 'workspace_premium',
+                        'link': reverse_lazy('admin:certifications_certification_changelist'),
                     },
                     {
                         'title': _('Temp/Humidity Readings'),
