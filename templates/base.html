@@ -17,6 +17,17 @@
     <link rel="manifest" href="{% static 'icons/site.webmanifest' %}">
     {% tailwind_preload_css %}
     {% tailwind_css %}
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GEQKKN8JFW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        
+        gtag('config', 'G-GEQKKN8JFW');
+    </script>
+
     <script src="{% static 'js/htmx.min.js' %}"></script>
     <script src="{% static 'js/alpinejs.min.js' %}" defer></script>
 </head>
