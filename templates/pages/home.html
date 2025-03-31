@@ -32,21 +32,17 @@
     <div class="mt-16">
         <h2 id="projects" class="section-header section-header-line">My Projects</h2>
         {% for project in projects %}
-            <div class="project-card grid grid-cols-1 md:grid-cols-4 gap-3">
-                <div class="col-span-1 text-slate-200 hidden md:block">{{ project.get_status_display }}</div>
-                <div class="col-span-3 space-y-2">
-                    <h4 class="text-lg text-sky-300 font-extrabold">
-                        <a href="{% url 'projects:project-detail' slug=project.slug %}" class="hover:underline transition duration-100">
-                            {{ project.name }}
-                        </a>
-                    </h4>
-                    <p class="md:hidden">{{ project.get_status_display }}</p>
-                    <p>{{ project.summary }}</p>
-                    <div class="flex justify-start items-center flex-wrap gap-3">
-                        {% for project_skill in project.skills_used.all %}
-                            <p class="font-mono skill-tag">{{ project_skill }}</p>
-                        {% endfor %}
-                    </div>
+            <div class="project-card space-y-2">
+                <h3 class="text-lg text-sky-300 font-extrabold">
+                    <a href="{% url 'projects:project-detail' slug=project.slug %}" class="hover:underline transition duration-100">
+                        {{ project.name }}
+                    </a>
+                </h3>
+                <p>{{ project.summary }}</p>
+                <div class="flex justify-start items-center flex-wrap gap-3">
+                    {% for project_skill in project.skills_used.all %}
+                        <p class="font-mono skill-tag">{{ project_skill }}</p>
+                    {% endfor %}
                 </div>
             </div>
         {% empty %}
