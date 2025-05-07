@@ -1,5 +1,6 @@
 import environ
 import os
+from bleach.sanitizer import ALLOWED_TAGS
 from django.templatetags.static import static
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
@@ -35,6 +36,7 @@ INSTALLED_APPS = [
     'tailwind',
     'taggit',
     'tinymce',
+    'markdownify',
     'django_recaptcha',
 
     # Local
@@ -46,6 +48,7 @@ INSTALLED_APPS = [
     'contacts.apps.ContactsConfig',
     'sensors.apps.SensorsConfig',
     'certifications.apps.CertificationsConfig',
+    'core.apps.CoreConfig',
 ]
 
 MIDDLEWARE = [
@@ -258,5 +261,18 @@ LOGGING = {
             'level': 'WARNING',
             'propagate': True,
         }
+    }
+}
+
+# Markdownify settings
+MARKDOWNIFY = {
+    'default': {
+        'WHITELIST_TAGS': list(ALLOWED_TAGS) + [
+            "p", "br", "h1", "h2", "h3", "h4", "h5", "h6",
+        ],
+        'MARKDOWN_EXTENSIONS': [
+            'markdown.extensions.fenced_code',
+            'markdown.extensions.nl2br',
+        ],
     }
 }

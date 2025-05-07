@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load static %}
+{% load static markdownify %}
 
 {% block content %}
     <div class="mt-10 pt-8 px-5 double-border">
@@ -16,7 +16,7 @@
                     <span class="text-lg text-sky-300 font-extrabold">{{ job.title }}</span> @ {{ job.company }}
                 </h3>
                 <p>{{ job.start_date|date:'F Y' }} &ndash; {% if job.end_date %}{{ job.end_date|date:'F Y' }}{% else %}Present{% endif %}</p>
-                {{ job.description|safe }}
+                {{ job.description|markdownify }}
                 {% if job.skills_used %}
                     <div class="flex justify-start items-center flex-wrap gap-3">
                         {% for job_skill in job.skills_used.all %}

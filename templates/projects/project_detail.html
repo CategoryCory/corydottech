@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load static %}
+{% load static markdownify %}
 
 {% block title %} | Project Description{% endblock title %}
 
@@ -21,6 +21,6 @@
         </div>
     {% endif %}
     <div class="mt-10 prose prose-sky max-w-none">
-        {{ project.description|safe }}
+        {{ project.description|markdownify }}
     </div>
 {% endblock content %}
