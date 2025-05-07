@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.forms import BaseModelForm
 from unfold.admin import ModelAdmin
 
 from projects.models import Project
@@ -12,7 +13,7 @@ class ProjectAdmin(ModelAdmin):
     list_per_page = 20
     readonly_fields = ('slug', )
 
-    def get_form(self, request, obj=None, **kwargs):
+    def get_form(self, request, obj=None, **kwargs) -> BaseModelForm:
         form = super().get_form(request, obj, **kwargs)
         form.base_fields["skills_used"].widget.attrs.setdefault(
             "class",

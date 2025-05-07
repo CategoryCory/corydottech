@@ -1,3 +1,4 @@
+from django.http import HttpRequest
 from django.shortcuts import get_object_or_404
 from ninja import Router
 from ninja.security import APIKeyHeader
@@ -9,10 +10,12 @@ from auth_keys.models import AuthKey
 class ApiKey(APIKeyHeader):
     param_name = 'X-API-Key'
 
-    def authenticate(self, request, key):
+    def authenticate(self, request: HttpRequest, key: str | None) -> str | None:
         api_key = AuthKey.objects.filter(is_active=True).first()
         if key == api_key.api_key:
             return key
+
+        return None
 
 
 router = Router()
@@ -27,18 +30,18 @@ def temp_humidity_to_response(data: TempHumiditySensor) -> TempHumidityResponseS
 
 
 @router.get('/', response=list[TempHumidityResponseSchema], auth=header_key)
-def list_readings(request) -> list[TempHumidityResponseSchema]:
+def list_readings(request: HttpRequest) -> list[TempHumidityResponseSchema]:
     readings = TempHumiditySensor.objects.all()
     return readings
 
 
 @router.get('/{reading_id}', response=TempHumidityResponseSchema, auth=header_key)
-def get_readings(request, reading_id: int) -> TempHumidityResponseSchema:
+def get_readings(request: HttpRequest, reading_id: int) -> TempHumidityResponseSchema:
     reading = get_object_or_404(TempHumiditySensor, pk=reading_id)
     return temp_humidity_to_response(reading)
 
 
-@router.post('/', auth=header_key)
-def add_reading(request, payload: TempHumiditySchema):
+@router.post('/', response=dict[str, int], auth=header_key)
+def add_reading(request: HttpRequest, payload: TempHumiditySchema) -> dict[str, int]:
     reading = TempHumiditySensor.objects.create(**payload.dict())
     return {'id': reading.id}

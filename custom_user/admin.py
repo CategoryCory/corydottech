@@ -11,7 +11,7 @@ class CustomUserAdmin(BaseUserAdmin, ModelAdmin):
     form = UserChangeForm
     model = CustomUser
     list_display = ('username', 'email', 'full_name', )
-    search_fields = ('username', 'email', 'full_name')
+    search_fields = ('username', 'email', 'full_name', )
     list_per_page = 20
 
 

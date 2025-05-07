@@ -1,5 +1,5 @@
 import html2text
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand, CommandError, CommandParser
 from django.apps import apps
 
 
@@ -9,7 +9,7 @@ class Command(BaseCommand):
         "Usage: manage.py convert_html_to_md <app_name>.<model_name> [--field <field_name>]"
     )
 
-    def add_arguments(self, parser) -> None:
+    def add_arguments(self, parser: CommandParser) -> None:
         parser.add_argument(
             "model",
             type=str,

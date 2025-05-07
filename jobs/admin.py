@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.forms import BaseModelForm
 from unfold.admin import ModelAdmin
 
 from jobs.models import Job
@@ -11,7 +12,7 @@ class JobAdmin(ModelAdmin):
     list_display_links = ('title', )
     list_per_page = 20
 
-    def get_form(self, request, obj=None, **kwargs):
+    def get_form(self, request, obj=None, **kwargs) -> BaseModelForm:
         form = super().get_form(request, obj, **kwargs)
         form.base_fields["skills_used"].widget.attrs.setdefault(
             "class",

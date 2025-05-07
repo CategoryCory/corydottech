@@ -1,5 +1,4 @@
 from django.contrib import admin
-from django.db import models
 from unfold.admin import ModelAdmin
 
 from certifications.models import Certification

@@ -7,12 +7,12 @@ class TempHumiditySensor(models.Model):
     humidity = models.FloatField(verbose_name='Relative Humidity in %')
     read_at = models.DateTimeField()
 
-    def save(self, *args, **kwargs):
+    def save(self, *args, **kwargs) -> None:
         if self.temp_fahrenheit is None:
             self.temp_fahrenheit = self.temp_celsius * 1.8 + 32
         super(TempHumiditySensor, self).save(*args, **kwargs)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'Temp/humidity reading at {self.read_at}'
 
     class Meta:

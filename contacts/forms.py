@@ -30,10 +30,10 @@ class ContactForm(ModelForm):
         fields = ('name', 'email', 'message', 'recaptcha', )
         labels = {'name': 'Name', 'email': 'Email', 'message': 'Message'}
 
-    def save(self, commit=True, *args, **kwargs) -> Any:
+    def save(self, commit: bool=True, *args, **kwargs) -> Any:
         instance = super(ContactForm, self).save()
 
-        def send_admin_email():
+        def send_admin_email() -> None:
             message_body: str = (
                 f'<p>You have a new message from {instance.name} ({instance.email}) on cory.tech.</p>'
                 f'<p>{instance.message}<p>'

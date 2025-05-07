@@ -1,7 +1,7 @@
 from cryptography.fernet import Fernet
 from datetime import datetime
 from django.conf import settings
-from django.core.management import BaseCommand
+from django.core.management import BaseCommand, CommandParser
 from django.utils.timezone import make_aware
 from auth_keys.models import AuthKey
 
@@ -9,10 +9,10 @@ from auth_keys.models import AuthKey
 class Command(BaseCommand):
     help = 'Generates a new AuthKey object'
 
-    def add_arguments(self, parser):
+    def add_arguments(self, parser: CommandParser) -> None:
         parser.add_argument("new_key", type=str)
 
-    def handle(self, *args, **options):
+    def handle(self, *args, **options) -> None:
         # Make sure there is only one active key at a time
         AuthKey.objects.filter(is_active=True).update(deactivated_at=make_aware(datetime.now()))
         AuthKey.objects.filter(is_active=True).update(is_active=False)

@@ -33,50 +33,50 @@ class ProjectModelTest(TestCase):
             begin_date=date.fromisoformat('2024-02-01'),
         )
 
-    def test_name_max_length(self):
+    def test_name_max_length(self) -> None:
         project = Project.objects.get(pk=1)
         max_length = project._meta.get_field('name').max_length
         self.assertEqual(max_length, 100)
 
-    def test_slug_max_length(self):
+    def test_slug_max_length(self) -> None:
         project = Project.objects.get(pk=1)
         max_length = project._meta.get_field('slug').max_length
         self.assertEqual(max_length, 150)
 
-    def test_summary_max_length(self):
+    def test_summary_max_length(self) -> None:
         project = Project.objects.get(pk=1)
         max_length = project._meta.get_field('summary').max_length
         self.assertEqual(max_length, 255)
 
-    def test_status_max_length(self):
+    def test_status_max_length(self) -> None:
         project = Project.objects.get(pk=1)
         max_length = project._meta.get_field('status').max_length
         self.assertEqual(max_length, 25)
 
-    def test_project_slug(self):
+    def test_project_slug(self) -> None:
         project = Project.objects.get(pk=1)
         self.assertIsNotNone(project.slug)
         self.assertTrue(project.slug.startswith('test-project-'))
 
-    def test_project_status(self):
+    def test_project_status(self) -> None:
         project = Project.objects.get(pk=1)
         self.assertEqual(project.status, 'in_progress')
 
-    def test_project_string(self):
+    def test_project_string(self) -> None:
         project = Project.objects.get(pk=1)
         self.assertEqual(str(project), 'Test Project 1')
 
-    def test_date_str_in_progress(self):
+    def test_date_str_in_progress(self) -> None:
         project = Project.objects.get(pk=1)
         expected_date_str = f'{project.begin_date.strftime("%b %Y")} \u2013 PRESENT'
         self.assertEqual(project.date_str, expected_date_str)
 
-    def test_date_str_complete_with_end_date(self):
+    def test_date_str_complete_with_end_date(self) -> None:
         project = Project.objects.get(pk=2)
         expected_date_str = f'{project.begin_date.strftime("%b %Y")} \u2013 {project.end_date.strftime("%b %Y")}'
         self.assertEqual(project.date_str, expected_date_str)
 
-    def test_date_str_complete_without_end_date(self):
+    def test_date_str_complete_without_end_date(self) -> None:
         project = Project.objects.get(pk=3)
         expected_date_str = project.begin_date.strftime("%b %Y")
         self.assertEqual(project.date_str, expected_date_str)
