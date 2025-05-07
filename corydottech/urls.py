@@ -10,7 +10,6 @@ urlpatterns = [
     path('contact/', include('contacts.urls')),
     path('cdt-admin/', admin.site.urls),
     path('api/', api.urls),
-    path('tinymce/', include('tinymce.urls')),
     path('__reload__/', include('django_browser_reload.urls')),
 ]
 

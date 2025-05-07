@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'ninja',
     'tailwind',
     'taggit',
-    'tinymce',
     'markdownify',
     'django_recaptcha',
 
@@ -148,19 +147,6 @@ INTERNAL_IPS = ['127.0.0.1', ]
 
 # Taggit
 TAGGIT_CASE_INSENSITIVE = True
-
-# TinyMCE Configuration
-TINYMCE_DEFAULT_CONFIG = {
-    "theme": "silver",
-    "height": "450px",
-    "menubar": "file edit view insert format tools table help",
-    "plugins": "advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code "
-    "fullscreen insertdatetime media table paste code help wordcount spellchecker",
-    "toolbar": "undo redo | bold italic underline | fontsizeselect formatselect | alignleft "
-    "aligncenter alignright alignjustify | outdent indent | numlist bullist | forecolor "
-    "backcolor | link anchor codesample | "
-    "a11ycheck ltr rtl | showcomments addcomment code",
-}
 
 # Encryption key
 ENCRYPTION_KEY = env('ENCRYPTION_KEY')
