@@ -44,7 +44,7 @@ class Command(BaseCommand):
 
         qs = mdl.objects.all()
         total = qs.count()
-        self.stdout.write(f"Converting {total} {label} records...")
+        self.stdout.write(f"Converting {total} '{label}' records...")
 
         md_converter = html2text.HTML2Text()
         md_converter.ignore_links = False
@@ -57,4 +57,4 @@ class Command(BaseCommand):
                 obj.save(update_fields=[field])
                 self.stdout.write(f"\t- {label} {obj.pk} converted.")
 
-        self.stdout.write(f"Finished converting {total} {label} records.")
+        self.stdout.write(f"Finished converting {total} '{label}' records.")
