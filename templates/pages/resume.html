@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="my-10 pt-8 pb-6 px-5 double-border">
+        <h2 class="inline-block banner pt-5 pb-3 text-3xl md:text-5xl text-left tracking-tight">My Resume</h2>
+    </div>
+    <p>
+        If you are unable to view this resume in your browser,
+        <a href="{% static 'assets/CoryCowardResume.pdf' %}" class="font-mono text-sky-300 hover:underline" download>
+            click here to download a PDF version.</a>
+    </p>
+    <div class="mt-6 w-full h-[70em]">
+        <iframe
+                src="{% static 'assets/CoryCowardResume.pdf' %}"
+                title="Embedded Resume PDF"
+                class="w-full h-full"
+        >
+            Your browser does not support embedded PDFs.
+            <a href="{% static 'assets/CoryCowardResume.pdf' %}">Download the PDF here.</a>
+        </iframe>
+    </div>
+{% endblock content %}

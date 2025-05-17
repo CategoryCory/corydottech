@@ -14,3 +14,6 @@ def home(request) -> HttpResponse:
         'jobs': jobs,
     }
     return render(request, 'pages/home.html', context=context)
+
+def resume_view(request) -> HttpResponse:
+    return render(request, 'pages/resume.html')
