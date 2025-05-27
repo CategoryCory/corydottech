@@ -1,0 +1,44 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run Django Server",
+            "type": "shell",
+            "command": "uv",
+            "args": [
+                "run",
+                "--",
+                "python",
+                "manage.py",
+                "runserver",
+                "localhost:8888",
+            ],
+            "group": "build",
+            "problemMatcher": [],
+        },
+        {
+            "label": "Run Tailwind Watch",
+            "type": "shell",
+            "command": "uv",
+            "args": [
+                "run",
+                "--",
+                "python",
+                "manage.py",
+                "tailwind",
+                "start",
+            ],
+            "group": "build",
+            "problemMatcher": [],
+        },
+        {
+            "label": "Django Server + Tailwind Watch",
+            "dependsOn": [
+                "Run Django Server",
+                "Run Tailwind Watch",
+            ],
+            "dependsOrder": "parallel",
+            "problemMatcher": []
+        }
+    ]
+}

@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Dev Server + Tailwind" type="CompoundRunConfigurationType">
+    <toRun name="corydottech" type="Python.DjangoServer" />
+    <toRun name="Tailwind Watch" type="ShConfigurationType" />
+    <method v="2" />
+  </configuration>
+</component>
