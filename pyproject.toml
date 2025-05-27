@@ -1,0 +1,25 @@
+[project]
+name = "corydottech"
+version = "0.2.0"
+description = "My personal portfolio site."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "cryptography>=45.0.3",
+    "django>=5.2.1",
+    "django-browser-reload>=1.18.0",
+    "django-environ>=0.12.0",
+    "django-markdownify>=0.9.5",
+    "django-ninja>=1.4.1",
+    "django-recaptcha>=4.1.0",
+    "django-taggit>=6.1.0",
+    "django-tailwind>=4.0.1",
+    "django-unfold>=0.59.0",
+    "gunicorn>=23.0.0",
+    "html2text>=2025.4.15",
+    "pillow>=11.2.1",
+    "psycopg[binary]>=3.2.9",
+    "python-slugify>=8.0.4",
+    "sendgrid>=6.12.2",
+    "uvicorn>=0.34.2",
+]
