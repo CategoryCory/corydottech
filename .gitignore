@@ -256,4 +256,7 @@ fabric.properties
 # JS
 node_modules/
 
+# Ruff
+.ruff_cache/
+
 # End of https://www.toptal.com/developers/gitignore/api/django
