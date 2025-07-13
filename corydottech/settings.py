@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'auth_keys.apps.AuthKeysConfig',
     'jobs.apps.JobsConfig',
     'projects.apps.ProjectsConfig',
+    'dev_log.apps.DevLogConfig',
     'contacts.apps.ContactsConfig',
     'sensors.apps.SensorsConfig',
     'certifications.apps.CertificationsConfig',
@@ -194,6 +195,11 @@ UNFOLD = {
                         'title': _('Projects'),
                         'icon': 'cognition',
                         'link': reverse_lazy('admin:projects_project_changelist'),
+                    },
+                    {
+                        'title': _('Dev Log'),
+                        'icon': 'auto_stories',
+                        'link': reverse_lazy('admin:dev_log_devlogentry_changelist'),
                     },
                     {
                         'title': _('Certifications'),
