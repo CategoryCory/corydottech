@@ -16,7 +16,7 @@ class DevLogEntry(models.Model):
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, unique=True)
     content = models.TextField(help_text='The main content of the log entry. Markdown is supported.')
-    published_date = models.DateTimeField()
+    published_date = models.DateTimeField(null=True, blank=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='draft')
 
     class Meta:
