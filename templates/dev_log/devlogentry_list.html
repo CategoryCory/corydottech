@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %} | Dev Log{% endblock title %}
+
+{% block content %}
+    <h2>Dev Log</h2>
+    <ul>
+        {% for entry in devlogentry_list %}
+            <li>{{ entry.title }}</li>
+        {% empty %}
+            <li>There are no dev log entries.</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

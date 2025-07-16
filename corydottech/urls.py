@@ -7,6 +7,7 @@ from .api import api
 urlpatterns = [
     path('', include('pages.urls')),
     path('projects/', include('projects.urls')),
+    path('devlog/', include('dev_log.urls')),
     path('contact/', include('contacts.urls')),
     path('cdt-admin/', admin.site.urls),
     path('api/', api.urls),

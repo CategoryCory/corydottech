@@ -1,5 +1,6 @@
 import uuid
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 from django.utils.text import slugify
 
@@ -33,3 +34,6 @@ class DevLogEntry(models.Model):
         if self.status == 'published' and not self.published_date:
             self.published_date = timezone.now()
         super(DevLogEntry, self).save(*args, **kwargs)
+
+    def get_absolute_url(self) -> str:
+        return reverse('dev_log-detail', kwargs={'slug': self.slug})
